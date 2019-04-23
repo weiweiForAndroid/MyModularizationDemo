@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyModularizationDemo</string>
+    <string name="modulea_activity">跳转到moduleA的activity</string>
 </resources>

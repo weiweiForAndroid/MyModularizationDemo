@@ -7,7 +7,7 @@ import android.os.Bundle
  * @author wellsen
  * moduleA启动界面
  */
-class MainActivity : AppCompatActivity() {
+class ModuleAMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

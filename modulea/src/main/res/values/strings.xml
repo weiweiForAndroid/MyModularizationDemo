@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ModuleA</string>
+    <string name="module_a_modulea_activity">ModuleA的主activity</string>
 </resources>
