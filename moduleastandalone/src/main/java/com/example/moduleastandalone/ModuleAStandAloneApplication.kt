@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.res.Configuration
 import com.example.modulea.ModuleAInit
 
-class ModuleAApplication:Application(){
+class ModuleAStandAloneApplication:Application(){
 
     override fun onCreate() {
         super.onCreate()

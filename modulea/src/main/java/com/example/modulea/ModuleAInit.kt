@@ -7,7 +7,7 @@ import com.example.basemodule.BaseLogicInit
 /**
  * 可以放置一些模块各自需要在application中初始化的代码
  */
-object ModuleAInit : BaseLogicInit() {
+class ModuleAInit : BaseLogicInit() {
     override fun onCreate() {
         Log.i(this.javaClass.canonicalName, "onCreate")
     }

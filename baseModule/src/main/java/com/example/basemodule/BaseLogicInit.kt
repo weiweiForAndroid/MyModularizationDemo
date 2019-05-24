@@ -6,6 +6,7 @@ import android.content.res.Configuration
  * 初始化工具类
  */
 open class BaseLogicInit {
+
     open var mApplication: BaseApplication? = null
     fun setApplication(app: BaseApplication?) {
         mApplication = app
