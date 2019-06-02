@@ -21,13 +21,15 @@ class ModuleAMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         setContentView(R.layout.module_a_activity_main)
         log("moduleA的MainActivity  onCreate()")
         progress_bar.visibility = View.VISIBLE
-        launch(Dispatchers.IO) {
-            val data = getPoetry()
-            withContext(Dispatchers.Main) {
-                tv.text = data
-                progress_bar.visibility = View.GONE
 
-            }
+        val deferred = async {
+            return@async getPoetry()
+
+        }
+        launch {
+            tv.text = deferred.await()
+            progress_bar.visibility = View.GONE
+
         }
 
     }
