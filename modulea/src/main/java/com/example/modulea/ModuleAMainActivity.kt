@@ -11,8 +11,7 @@ import kotlinx.coroutines.*
 
 /**
  * @author wellsen
- * moduleA启动界面
- *
+ * moduleA 的MainActivity
  */
 class ModuleAMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
@@ -21,23 +20,16 @@ class ModuleAMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         setContentView(R.layout.module_a_activity_main)
         log("moduleA的MainActivity  onCreate()")
         progress_bar.visibility = View.VISIBLE
-
-        val deferred = async {
-            return@async getPoetry()
-
-        }
-        launch {
-            tv.text = deferred.await()
+        launch(Dispatchers.Main) {
+            tv.text = getPoetry()
             progress_bar.visibility = View.GONE
-
         }
-
     }
 
     private suspend fun getPoetry(): String? {
-        delay(5000)
+        val response = Api.poetry.getPoetry()
+//        if ()
         return "假装接口返回数据了"
-
     }
 
 
