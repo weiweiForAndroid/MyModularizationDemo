@@ -20,15 +20,22 @@ class ModuleAMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         setContentView(R.layout.module_a_activity_main)
         log("moduleA的MainActivity  onCreate()")
         progress_bar.visibility = View.VISIBLE
-        launch(Dispatchers.Main) {
-            tv.text = getPoetry()
+        val response = async(Dispatchers.IO) {
+            getPoetry()
+        }
+        launch {
+            tv.text = response.await()
             progress_bar.visibility = View.GONE
         }
     }
 
-    private suspend fun getPoetry(): String? {
-        val response = Api.poetry.getPoetry()
-//        if ()
+    private fun getPoetry(): String? {
+        val request = Api.poetry.getPoetry()
+        request.execute().apply {
+            if (isSuccessful) {
+                return this.body()?.result?.content
+            }
+        }
         return "假装接口返回数据了"
     }
 
