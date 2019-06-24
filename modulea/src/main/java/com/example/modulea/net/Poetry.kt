@@ -11,6 +11,6 @@ interface Poetry {
      * 随机获取一首唐诗
      */
     @POST("/recommendPoetry")
-    fun getPoetry(): Call<BaseResponse<PoetryBean>>
+    fun getPoetry(): Call<BaseResponse>
 }
 

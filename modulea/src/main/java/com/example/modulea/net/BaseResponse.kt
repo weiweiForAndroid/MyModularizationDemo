@@ -1,7 +1,8 @@
 package com.example.modulea.net
 
-data class BaseResponse<T>(
+data class BaseResponse(
     val code: Int,
     val message: String,
-    val result: T
+    val result: String?
+
 )

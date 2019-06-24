@@ -10,6 +10,7 @@ import com.example.basemodule.BaseLogicInit
 class ModuleAInit : BaseLogicInit() {
     override fun onCreate() {
         Log.i(this.javaClass.canonicalName, "onCreate")
+
     }
 
     override fun onLowMemory() {

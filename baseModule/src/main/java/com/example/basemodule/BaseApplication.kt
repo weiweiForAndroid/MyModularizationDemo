@@ -3,6 +3,7 @@ package com.example.basemodule
 import android.app.Application
 import android.content.res.Configuration
 import java.lang.Exception
+import java.lang.ref.WeakReference
 
 /**
  * @author wellsen
@@ -20,6 +21,7 @@ abstract class BaseApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        mContext = WeakReference(this)
         initLogic()
         for (clazz in logicClazzList){
             try {
@@ -58,5 +60,9 @@ abstract class BaseApplication: Application() {
         for (instance in logicList){
             instance.onConfigChange(newConfig)
         }
+    }
+
+    companion object{
+        lateinit var mContext :WeakReference<Application>
     }
 }

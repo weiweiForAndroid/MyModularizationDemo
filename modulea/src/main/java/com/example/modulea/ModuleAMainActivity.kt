@@ -33,7 +33,7 @@ class ModuleAMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         val request = Api.poetry.getPoetry()
         request.execute().apply {
             if (isSuccessful) {
-                return this.body()?.result?.content
+                return this.body()?.result
             }
         }
         return "假装接口返回数据了"
